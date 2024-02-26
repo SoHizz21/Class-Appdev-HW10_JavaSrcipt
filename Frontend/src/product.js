@@ -84,7 +84,7 @@ export default function Product(){
 
       return (
             <div style={{ display: 'grid'  }}>
-            <div style={{ margin: '50px', display: 'grid', justifyContent: 'center' }}>
+            <div style={{margin: '50px', display: 'grid', justifyContent: 'center' }}>
                 <h1 style={{ textAlign:'center'}}>Add Products</h1>
                 _id: <input type="number" name="product_id" ref={myInputRef0}/>
                 Product Name: <input type="text"  name="product_name" ref={myInputRef1}/>
