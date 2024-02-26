@@ -21,5 +21,32 @@ def get_all_products():
       d = list(collection.find())
       return jsonify(d),200
 
+@app.route("/products",methods=["POST"])
+def post_products():
+    data = request.get_json();
+    id = collection.find_one({"_id":data.get("_id")})
+    if id:
+        return jsonify({"error":"Cannot create new products"}),500
+    collection.insert_one(data)
+    return jsonify(data),200
+
+@app.route("/products/<int:data_products>",methods=["PUT"])
+def put_products(data_products):
+    data = request.get_json();
+    id = collection.find_one({"_id":str(data_products)})
+    if not id:
+        return jsonify({"error":"products not found"}),404
+    collection.update_one({"_id": str(data_products)}, {"$set": data})
+    return jsonify(data),200
+
+@app.route("/products/<int:data_products>",methods=["DELETE"])
+def delete_products(data_products):
+    id = collection.find_one({"_id":str(data_products)})
+    if not id:
+        return jsonify({"error":"products not found"}),404
+    collection.delete_one({"_id": str(data_products)})
+    return jsonify({"message":"products deleted successfully"}),200
+
+
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=5000,debug=True)
