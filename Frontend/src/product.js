@@ -87,7 +87,7 @@ export default function Product(){
             <div style={{ margin: '50px', display: 'grid', justifyContent: 'center' }}>
                 <h1 style={{ textAlign:'center'}}>Add Products</h1>
                 _id: <input type="number" name="product_id" ref={myInputRef0}/>
-                Product Name: <input type="text" name="product_name" ref={myInputRef1}/>
+                Product Name: <input type="text"  name="product_name" ref={myInputRef1}/>
                 Price: <input type="text" name="product_price" ref={myInputRef2}/>
                 img: <input type="text" name="product_img" ref={myInputRef3}/>
                 <button onClick={onAddProduct}>Add Product</button>
