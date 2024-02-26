@@ -1,18 +1,19 @@
 import {BrowserRouter,Route,Routes,Link} from "react-router-dom";
-import About from "./About";
 import Product from "./product";
 export default function App() {
   return (
    
     // <BrowserRouter>
+    //   <Link to="/products">About</Link>
+    //   <Link to="/poet">About</Link>
     //   <Link to="about">About</Link>
-    //   <Routes>
 
-    //     <Route path="/about" element={<About/>}/>
+    //   <Routes>
+    //     <Route path="/products" element={<Product/>}/>
     //   </Routes>
     // </BrowserRouter>
-    <Product/ >
    
+    <Product/>
   );
 }
 

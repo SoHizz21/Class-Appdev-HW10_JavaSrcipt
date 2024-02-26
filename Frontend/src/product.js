@@ -1,6 +1,6 @@
 import { useState,useEffect} from "react";
 import axios from "axios";
-
+import './product.css';
 
 export default function Product(){
       const [product,setProduct]=useState([])
@@ -12,11 +12,6 @@ export default function Product(){
             
             const productList=product.map(p=><li>{p.id}{p.name} <img src={p.img}/> {p.price}</li>)
       return(<>
-            <ul>
-                  <div className="">
-
-                  </div>
                   {productList}      
-            </ul>
             </>)
 }
