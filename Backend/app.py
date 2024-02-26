@@ -33,18 +33,18 @@ def post_products():
 @app.route("/products/<int:data_products>",methods=["PUT"])
 def put_products(data_products):
     data = request.get_json();
-    id = collection.find_one({"_id":str(data_products)})
+    id = collection.find_one({"_id":data_products})
     if not id:
         return jsonify({"error":"products not found"}),404
-    collection.update_one({"_id": str(data_products)}, {"$set": data})
+    collection.update_one({"_id": data_products}, {"$set": data})
     return jsonify(data),200
 
 @app.route("/products/<int:data_products>",methods=["DELETE"])
 def delete_products(data_products):
-    id = collection.find_one({"_id":str(data_products)})
+    id = collection.find_one({"_id":data_products})
     if not id:
         return jsonify({"error":"products not found"}),404
-    collection.delete_one({"_id": str(data_products)})
+    collection.delete_one({"_id": data_products})
     return jsonify({"message":"products deleted successfully"}),200
 
 
